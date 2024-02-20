@@ -1,0 +1,2721 @@
+ to find the K most occurring elements in a given array:
+
+
+
+import java.util.*;
+
+public class Main {
+
+    // Function to find K most occurring elements
+    public static List<Integer> findKMostOccurringElements(int[] nums, int k) {
+        // Hashmap to store frequency of each element
+        Map<Integer, Integer> freqMap = new HashMap<>();
+        
+        // Counting the frequency of each element
+        for (int num : nums) {
+            freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
+        }
+        
+        // Convert the hashmap to a list of Map.Entry
+        List<Map.Entry<Integer, Integer>> freqList = new ArrayList<>(freqMap.entrySet());
+        
+        // Sorting the list based on frequency in descending order
+        Collections.sort(freqList, (a, b) -> b.getValue() - a.getValue());
+        
+        // Extracting the top K elements
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < k && i < freqList.size(); ++i) {
+            result.add(freqList.get(i).getKey());
+        }
+        
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 1, 2, 2, 2, 3, 3, 4, 4, 4, 4};
+        int k = 2;
+        
+        List<Integer> topKElements = findKMostOccurringElements(nums, k);
+        
+        System.out.print("Top " + k + " most occurring elements: ");
+        for (int num : topKElements) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+}
+
+
+
+
+
+
+
+//Java Program to demonstrate the use of the parameterized constructor.  
+
+
+class Student4{  
+    int id;  
+    String name;  
+    //creating a parameterized constructor  
+    Student4(int i,String n){  
+    id = i;  
+    name = n;  
+    }  
+    //method to display the values  
+    void display(){System.out.println(id+" "+name);}  
+   
+    public static void main(String args[]){  
+    //creating objects and passing values  
+    Student4 s1 = new Student4(111,"Karan");  
+    Student4 s2 = new Student4(222,"Aryan");  
+    //calling method to display the values of object  
+    s1.display();  
+    s2.display();  
+   }  
+}  
+Test it Now
+Output:
+
+111 Karan
+222 Aryan
+
+
+
+
+
+Constructor Overloading in Java
+In Java, a constructor is just like a method but without return type. It can also be overloaded like Java methods.
+
+Constructor overloading in Java is a technique of having more than one constructor with different parameter lists. They are arranged in a way that each constructor performs a different task. They are differentiated by the compiler by the number of parameters in the list and their types.
+
+Example of Constructor Overloading
+//Java program to overload constructors  
+class Student5{  
+    int id;  
+    String name;  
+    int age;  
+    //creating two arg constructor  
+    Student5(int i,String n){  
+    id = i;  
+    name = n;  
+    }  
+    //creating three arg constructor  
+    Student5(int i,String n,int a){  
+    id = i;  
+    name = n;  
+    age=a;  
+    }  
+    void display(){System.out.println(id+" "+name+" "+age);}  
+   
+    public static void main(String args[]){  
+    Student5 s1 = new Student5(111,"Karan");  
+    Student5 s2 = new Student5(222,"Aryan",25);  
+    s1.display();  
+    s2.display();  
+   }  
+} 
+
+
+
+
+
+
+
+//Java Program to demonstrate the use of a static method.  
+class Student{  
+     int rollno;  
+     String name;  
+     static String college = "ITS";  
+     //static method to change the value of static variable  
+     static void change(){  
+     college = "BBDIT";  
+     }  
+     //constructor to initialize the variable  
+     Student(int r, String n){  
+     rollno = r;  
+     name = n;  
+     }  
+     //method to display values  
+     void display(){System.out.println(rollno+" "+name+" "+college);}  
+}  
+//Test class to create and display the values of object  
+public class TestStaticMethod{  
+    public static void main(String args[]){  
+    Student.change();//calling change method  
+    //creating objects  
+    Student s1 = new Student(111,"Karan");  
+    Student s2 = new Student(222,"Aryan");  
+    Student s3 = new Student(333,"Sonoo");  
+    //calling display method  
+    s1.display();  
+    s2.display();  
+    s3.display();  
+    }  
+}  
+Test it Now
+Output:111 Karan BBDIT
+       222 Aryan BBDIT
+       333 Sonoo BBDIT
+
+
+
+
+
+
+Another example of a static method that performs a normal calculation
+//Java Program to get the cube of a given number using the static method  
+  
+class Calculate{  
+  static int cube(int x){  
+  return x*x*x;  
+  }  
+  
+  public static void main(String args[]){  
+  int result=Calculate.cube(5);  
+  System.out.println(result);  
+  }  
+} 
+
+
+///
+
+
+
+
+
+
+
+
+1. Method, Constructor, static keyword, this keyword
+java
+Copy code
+public class MyClass {
+    int x;
+
+    // Constructor
+    public MyClass(int x) {
+        this.x = x;
+    }
+
+    // Method
+    public void display() {
+        System.out.println("The value of x is: " + x);
+    }
+
+    // Static method
+    public static void staticMethod() {
+        System.out.println("This is a static method.");
+    }
+
+    public static void main(String[] args) {
+        MyClass obj = new MyClass(5);
+        obj.display();
+
+        // Calling static method
+        MyClass.staticMethod();
+    }
+}
+
+
+
+
+
+2. Java Inheritance
+java
+Copy code
+class Animal {
+    void eat() {
+        System.out.println("Animal is eating...");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog is barking...");
+    }
+
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.eat();  // Inherited from Animal class
+        dog.bark();
+    }
+}
+
+
+
+
+
+
+3. Inheritance (IS-A), Aggregation (HAS-A)
+java
+Copy code
+class Engine {
+    void start() {
+        System.out.println("Engine started.");
+    }
+}
+
+class Car {
+    Engine engine; // Aggregation
+    String color;
+
+    public Car(String color) {
+        this.color = color;
+        engine = new Engine(); // Aggregation
+    }
+
+    void drive() {
+        System.out.println(color + " car is driving...");
+    }
+}
+I'll continue providing the code snippets for the remaining topics in separate responses. Let me know if you have any questions!
+
+
+
+
+
+4. Java Polymorphism
+java
+Copy code
+class Animal2 {
+    void sound() {
+        System.out.println("Animal makes a sound.");
+    }
+}
+
+class Dog2 extends Animal2 {
+    @Override
+    void sound() {
+        System.out.println("Dog barks.");
+    }
+
+    public static void main(String[] args) {
+        Dog2 dog = new Dog2();
+        dog.sound();  // Overrides the sound() method of Animal class
+    }
+}
+
+
+
+
+
+
+5. Covariant Return Type, super keyword
+java
+Copy code
+// Covariant Return Type
+class Parent {
+    Parent get() {
+        return this;
+    }
+}
+
+class Child extends Parent {
+    Child get() {
+        return this;
+    }
+}
+
+// super keyword
+class Animal3 {
+    String color = "White";
+}
+
+class Dog3 extends Animal3 {
+    String color = "Black";
+
+    void display() {
+        System.out.println("Dog color: " + color);
+        System.out.println("Animal color: " + super.color);
+    }
+
+    public static void main(String[] args) {
+        Dog3 dog = new Dog3();
+        dog.display();  // Accesses color of Animal using super keyword
+    }
+}
+
+
+
+
+
+
+
+6. Instance Initializer block, final keyword, Runtime Polymorphism, Dynamic Binding
+java
+Copy code
+class Animal4 {
+    void eat() {
+        System.out.println("Animal is eating...");
+    }
+}
+
+class Dog4 extends Animal4 {
+    @Override
+    void eat() {
+        System.out.println("Dog is eating...");
+    }
+
+    public static void main(String[] args) {
+        Animal4 animal = new Dog4();
+        animal.eat();  // Runtime Polymorphism
+    }
+}
+I'll continue with the remaining topics in the next response. Let me know if you have any questions!
+
+
+
+
+7. instanceof operator
+java
+Copy code
+class Vehicle {}
+
+class Car2 extends Vehicle {}
+
+class Bike extends Vehicle {}
+
+public class Main {
+    public static void main(String[] args) {
+        Vehicle vehicle1 = new Car2();
+        Vehicle vehicle2 = new Bike();
+
+        System.out.println(vehicle1 instanceof Car2);  // true
+        System.out.println(vehicle2 instanceof Bike);  // true
+        System.out.println(vehicle1 instanceof Bike);  // false
+    }
+}
+
+
+
+
+
+8. Java Abstraction
+java
+Copy code
+// Abstract class
+abstract class Shape {
+    abstract void draw();
+}
+
+// Interface
+interface Drawable {
+    void draw();
+}
+
+// Abstract vs Interface
+abstract class Vehicle2 {
+    abstract void start();
+}
+
+interface Drivable {
+    void drive();
+}
+
+
+
+
+
+9. Java Encapsulation
+java
+Copy code
+class Student {
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+I'll continue providing the code snippets for the remaining topics in separate responses. Let me know if you have any questions!
+
+
+
+
+10. Package, Access Modifiers, Encapsulation
+java
+Copy code
+// MyClass.java
+package mypackage;
+
+public class MyClass2 {
+    private int privateVar;
+    int defaultVar;
+    protected int protectedVar;
+    public int publicVar;
+}
+
+
+
+
+
+
+11. Java Array
+java
+Copy code
+class ArrayExample {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        System.out.println("Array elements:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+}
+
+
+
+
+
+
+
+12. Java OOPs Misc
+java
+Copy code
+class Box {
+    double width;
+    double height;
+    double depth;
+
+    Box(double w, double h, double d) {
+        width = w;
+        height = h;
+        depth = d;
+    }
+
+    double volume() {
+        return width * height * depth;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+13. Object class, Object Cloning
+java
+Copy code
+class MyClass3 implements Cloneable {
+    int x;
+
+    public MyClass3(int x) {
+        this.x = x;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+}
+
+
+
+
+
+
+14. Math class, Wrapper Class
+java
+Copy code
+class MathWrapperExample {
+    public static void main(String[] args) {
+        int x = 10;
+        Integer y = Integer.valueOf(x); // Autoboxing
+        int z = y.intValue(); // Unboxing
+        System.out.println("x: " + x + ", y: " + y + ", z: " + z);
+
+        double d = Math.sqrt(16);
+        System.out.println("Square root of 16: " + d);
+    }
+}
+
+
+
+
+
+
+15. Java Recursion
+java
+Copy code
+class RecursionExample {
+    static int factorial(int n) {
+        if (n == 0)
+            return 1;
+        else
+            return (n * factorial(n - 1));
+    }
+
+    public static void main(String[] args) {
+        int num = 5;
+        System.out.println("Factorial of " + num + " is " + factorial(num));
+    }
+}
+
+
+
+
+
+
+16. Call By Value
+java
+Copy code
+class CallByValueExample {
+    int x;
+
+    CallByValueExample(int i) {
+        x = i;
+    }
+
+    void modify(int i) {
+        i *= 2;
+    }
+
+    public static void main(String[] args) {
+        CallByValueExample obj = new CallByValueExample(10);
+        System.out.println("Before modification: " + obj.x);
+        obj.modify(obj.x);
+        System.out.println("After modification: " + obj.x);
+    }
+}
+
+
+
+
+
+
+
+17. Command Line Arg
+java
+Copy code
+class CommandLineArgExample {
+    public static void main(String[] args) {
+        System.out.println("Command line arguments:");
+        for (String arg : args) {
+            System.out.println(arg);
+        }
+    }
+}
+
+
+
+
+
+18. Object vs Class, Overloading vs Overriding
+java
+Copy code
+class Animal5 {
+    void sound() {
+        System.out.println("Animal makes a sound.");
+    }
+}
+
+class Dog5 extends Animal5 {
+    @Override
+    void sound() {
+        System.out.println("Dog barks.");
+    }
+
+    void sound(int num) {
+        for (int i = 0; i < num; i++) {
+            System.out.println("Dog barks.");
+        }
+    }
+
+    public static void main(String[] args) {
+        Dog5 dog = new Dog5();
+        dog.sound();  // Overrides the sound() method of Animal class
+        dog.sound(3); // Overloads the sound() method
+    }
+}
+
+
+
+
+
+
+
+19. Java String
+java
+Copy code
+class StringExample {
+    public static void main(String[] args) {
+        String str = "Hello, World!";
+        System.out.println("String length: " + str.length());
+        System.out.println("Substring: " + str.substring(7));
+    }
+}
+
+
+
+
+
+
+20. Java Regex
+java
+Copy code
+import java.util.regex.*;
+
+class RegexExample {
+    public static void main(String[] args) {
+        String str = "The cat sat on the mat.";
+        Pattern pattern = Pattern.compile("cat");
+        Matcher matcher = pattern.matcher(str);
+        while (matcher.find()) {
+            System.out.println("Found at index " + matcher.start() + " - " + matcher.group());
+        }
+    }
+}
+
+
+
+
+
+
+
+21. Exception Handling
+java
+Copy code
+class ExceptionHandlingExample {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0;
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Arithmetic Exception: " + e.getMessage());
+        }
+    }
+}
+
+
+
+
+
+
+
+22. Java Inner classes
+java
+Copy code
+class Outer {
+    int x = 10;
+
+    class Inner {
+        int y = 5;
+
+        void display() {
+            System.out.println("Inner class method: " + x);
+        }
+    }
+
+    public static void main(String[] args) {
+        Outer outer = new Outer();
+        Outer.Inner inner = outer.new Inner();
+        inner.display();
+    }
+}
+
+
+
+
+
+
+
+23. Java Multithreading
+java
+Copy code
+class MyThread extends Thread {
+    public void run() {
+        System.out.println("MyThread is running...");
+    }
+
+    public static void main(String[] args) {
+        MyThread thread = new MyThread();
+        thread.start();
+    }
+}
+
+
+
+
+
+
+
+24. Java I/O
+java
+Copy code
+import java.io.*;
+
+class FileReadWriteExample {
+    public static void main(String[] args) {
+        try {
+            FileWriter writer = new FileWriter("output.txt");
+            writer.write("Hello, World!");
+            writer.close();
+
+            FileReader reader = new FileReader("output.txt");
+            int data;
+            while ((data = reader.read()) != -1) {
+                System.out.print((char) data);
+            }
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+}
+
+
+public class SinglyLinkedList {    
+    //Represent a node of the singly linked list    
+    class Node{    
+        int data;    
+        Node next;    
+            
+        public Node(int data) {    
+            this.data = data;    
+            this.next = null;    
+        }    
+    }    
+     
+    //Represent the head and tail of the singly linked list    
+    public Node head = null;    
+    public Node tail = null;    
+        
+    //addNode() will add a new node to the list    
+    public void addNode(int data) {    
+        //Create a new node    
+        Node newNode = new Node(data);    
+            
+        //Checks if the list is empty    
+        if(head == null) {    
+            //If list is empty, both head and tail will point to new node    
+            head = newNode;    
+            tail = newNode;    
+        }    
+        else {    
+            //newNode will be added after tail such that tail's next will point to newNode    
+            tail.next = newNode;    
+            //newNode will become new tail of the list    
+            tail = newNode;    
+        }    
+    }    
+        
+    //display() will display all the nodes present in the list    
+    public void display() {    
+        //Node current will point to head    
+        Node current = head;    
+            
+        if(head == null) {    
+            System.out.println("List is empty");    
+            return;    
+        }    
+        System.out.println("Nodes of singly linked list: ");    
+        while(current != null) {    
+            //Prints each node by incrementing pointer    
+            System.out.print(current.data + " ");    
+            current = current.next;    
+        }    
+        System.out.println();    
+    }    
+        
+    public static void main(String[] args) {    
+            
+        SinglyLinkedList sList = new SinglyLinkedList();    
+            
+        //Add nodes to the list    
+        sList.addNode(1);    
+        sList.addNode(2);    
+        sList.addNode(3);    
+        sList.addNode(4);    
+            
+        //Displays the nodes present in the list    
+        sList.display();    
+    }    
+}    
+
+
+
+
+
+
+
+
+1. Linear Search in Java
+java
+Copy code
+public class LinearSearch {
+    public static int linearSearch(int[] arr, int target) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target) {
+                return i; // Return the index if found
+            }
+        }
+        return -1; // Return -1 if not found
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {5, 3, 8, 2, 9, 4};
+        int target = 8;
+        int index = linearSearch(arr, target);
+        if (index != -1) {
+            System.out.println("Element found at index: " + index);
+        } else {
+            System.out.println("Element not found.");
+        }
+    }
+}
+
+
+
+
+
+
+
+2. Binary Search in Java
+java
+Copy code
+import java.util.Arrays;
+
+public class BinarySearch {
+    public static int binarySearch(int[] arr, int target) {
+        int left = 0;
+        int right = arr.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] == target) {
+                return mid; // Return the index if found
+            } else if (arr[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return -1; // Return -1 if not found
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {2, 4, 6, 8, 10, 12};
+        int target = 8;
+        int index = binarySearch(arr, target);
+        if (index != -1) {
+            System.out.println("Element found at index: " + index);
+        } else {
+            System.out.println("Element not found.");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+3. Bubble Sort in Java
+java
+Copy code
+public class BubbleSort {
+    public static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // Swap arr[j] and arr[j+1]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {5, 3, 8, 2, 9, 4};
+        bubbleSort(arr);
+        System.out.println("Sorted array: " + Arrays.toString(arr));
+    }
+}
+
+
+
+
+
+
+
+
+
+4. Selection Sort in Java
+java
+Copy code
+import java.util.Arrays;
+
+public class SelectionSort {
+    public static void selectionSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            // Swap arr[i] and arr[minIndex]
+            int temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {5, 3, 8, 2, 9, 4};
+        selectionSort(arr);
+        System.out.println("Sorted array: " + Arrays.toString(arr));
+    }
+}
+
+
+
+
+
+
+
+5. Insertion Sort in Java
+java
+Copy code
+import java.util.Arrays;
+
+public class InsertionSort {
+    public static void insertionSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 1; i < n; i++) {
+            int key = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = key;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {5, 3, 8, 2, 9, 4};
+        insertionSort(arr);
+        System.out.println("Sorted array: " + Arrays.toString(arr));
+    }
+}
+
+
+
+
+
+
+
+
+
+
+write full code separate separate - 1) Java Program to count the total number of characters in a string
+2) Java Program to count the total number of characters in a string 2
+3) Java Program to count the total number of punctuation characters exists in a String
+4) Java Program to count the total number of vowels and consonants in a string
+5) Java Program to determine whether two strings are the anagram
+6) Java Program to divide a string in 'N' equal parts.
+7) Java Program to find all subsets of a string
+8) Java Program to find the longest repeating sequence in a string
+9) Java Program to find all the permutations of a string
+10) Java Program to remove all the white spaces from a string
+11) Java Program to replace lower-case characters with upper-case and vice-versa
+12) Java Program to replace the spaces of a string with a specific character
+13) Java Program to determine whether a given string is palindrome
+14) Java Program to determine whether one string is a rotation of another
+15) Java Program to find maximum and minimum occurring character in a string
+16) Java Program to find Reverse of the string
+17) Java program to find the duplicate characters in a string
+18) Java program to find the duplicate words in a string
+19) Java Program to find the frequency of characters
+20) Java Program to find the largest and smallest word in a string
+21) Java Program to find the most repeated word in a text file
+22) Java Program to find the number of the words in the given text file
+23) Java Program to separate the Individual Characters from a String
+24) Java Program to swap two string variables without using third or temp variable.
+25) Java Program to print smallest and biggest possible palindrome word in a given string
+26) Reverse String in Java Word by Word
+27) Reserve String without reverse() function
+
+
+1. Java Program to count the total number of characters in a string
+java
+Copy code
+public class CountCharacters {
+    public static void main(String[] args) {
+        String str = "Hello, World!";
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (!Character.isWhitespace(str.charAt(i))) {
+                count++;
+            }
+        }
+        System.out.println("Total number of characters: " + count);
+    }
+}
+
+
+
+
+
+
+
+2. Java Program to count the total number of characters in a string 2
+java
+Copy code
+public class CountCharacters2 {
+    public static void main(String[] args) {
+        String str = "This is another example.";
+        int count = str.length();
+        System.out.println("Total number of characters: " + count);
+    }
+}
+
+
+
+
+
+
+
+3. Java Program to count the total number of punctuation characters exists in a String
+java
+Copy code
+public class CountPunctuation {
+    public static void main(String[] args) {
+        String str = "Hello, World! How are you?";
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (!Character.isLetterOrDigit(ch) && !Character.isWhitespace(ch)) {
+                count++;
+            }
+        }
+        System.out.println("Total number of punctuation characters: " + count);
+    }
+}
+
+
+
+
+
+
+
+4. Java Program to count the total number of vowels and consonants in a string
+java
+Copy code
+public class CountVowelsConsonants {
+    public static void main(String[] args) {
+        String str = "Hello, World!";
+        int vowels = 0, consonants = 0;
+        str = str.toLowerCase();
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                vowels++;
+            } else if (Character.isLetter(ch)) {
+                consonants++;
+            }
+        }
+        System.out.println("Total number of vowels: " + vowels);
+        System.out.println("Total number of consonants: " + consonants);
+    }
+}
+
+
+
+
+
+
+
+5. Java Program to determine whether two strings are anagrams
+java
+Copy code
+import java.util.Arrays;
+
+public class CheckAnagram {
+    public static boolean areAnagrams(String str1, String str2) {
+        if (str1.length() != str2.length()) {
+            return false;
+        }
+        char[] charArray1 = str1.toCharArray();
+        char[] charArray2 = str2.toCharArray();
+        Arrays.sort(charArray1);
+        Arrays.sort(charArray2);
+        return Arrays.equals(charArray1, charArray2);
+    }
+
+    public static void main(String[] args) {
+        String str1 = "listen";
+        String str2 = "silent";
+        if (areAnagrams(str1, str2)) {
+            System.out.println("The strings are anagrams.");
+        } else {
+            System.out.println("The strings are not anagrams.");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+6. Java Program to divide a string into 'N' equal parts
+java
+Copy code
+public class DivideString {
+    public static String[] divideString(String str, int n) {
+        int len = str.length();
+        int partLength = len / n;
+        String[] parts = new String[n];
+        if (len % n != 0) {
+            return null;
+        }
+        for (int i = 0; i < len; i += partLength) {
+            parts[i / partLength] = str.substring(i, i + partLength);
+        }
+        return parts;
+    }
+
+    public static void main(String[] args) {
+        String str = "abcdefghijk";
+        int n = 3;
+        String[] parts = divideString(str, n);
+        if (parts != null) {
+            for (String part : parts) {
+                System.out.println(part);
+            }
+        } else {
+            System.out.println("String cannot be divided into equal parts.");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+7. Java Program to find all subsets of a string
+java
+Copy code
+public class SubsetsOfString {
+    public static void findSubsets(String str) {
+        int len = str.length();
+        int totalSubsets = 1 << len;
+        for (int i = 0; i < totalSubsets; i++) {
+            StringBuilder subset = new StringBuilder();
+            for (int j = 0; j < len; j++) {
+                if ((i & (1 << j)) != 0) {
+                    subset.append(str.charAt(j));
+                }
+            }
+            System.out.println(subset);
+        }
+    }
+
+    public static void main(String[] args) {
+        String str = "abc";
+        findSubsets(str);
+    }
+}
+
+
+
+
+
+
+
+
+
+8. Java Program to find the longest repeating sequence in a string
+java
+Copy code
+public class LongestRepeatingSequence {
+    public static String findLongestRepeatingSequence(String str) {
+        String longest = "";
+        int n = str.length();
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                String substring1 = str.substring(i, j);
+                String substring2 = str.substring(j);
+                if (substring2.contains(substring1) && substring1.length() > longest.length()) {
+                    longest = substring1;
+                }
+            }
+        }
+        return longest;
+    }
+
+    public static void main(String[] args) {
+        String str = "abababa";
+        String longestSequence = findLongestRepeatingSequence(str);
+        System.out.println("Longest repeating sequence: " + longestSequence);
+    }
+}
+
+
+
+
+
+
+
+Continue to next response for remaining solutions.
+
+
+
+
+
+
+9. Java Program to find all the permutations of a string
+java
+Copy code
+import java.util.ArrayList;
+import java.util.List;
+
+public class StringPermutations {
+    public static List<String> findPermutations(String str) {
+        List<String> permutations = new ArrayList<>();
+        if (str == null || str.length() == 0) {
+            permutations.add("");
+            return permutations;
+        }
+        char firstChar = str.charAt(0);
+        String remaining = str.substring(1);
+        List<String> words = findPermutations(remaining);
+        for (String word : words) {
+            for (int i = 0; i <= word.length(); i++) {
+                permutations.add(word.substring(0, i) + firstChar + word.substring(i));
+            }
+        }
+        return permutations;
+    }
+
+    public static void main(String[] args) {
+        String str = "abc";
+        List<String> permutations = findPermutations(str);
+        System.out.println("Permutations of '" + str + "': " + permutations);
+    }
+}
+
+
+
+
+
+
+
+10. Java Program to remove all the white spaces from a string
+java
+Copy code
+public class RemoveWhiteSpaces {
+    public static String removeSpaces(String str) {
+        return str.replaceAll("\\s", "");
+    }
+
+    public static void main(String[] args) {
+        String str = "  Hello,   World!  ";
+        String result = removeSpaces(str);
+        System.out.println("String without white spaces: " + result);
+    }
+}
+
+
+
+
+
+
+
+11. Java Program to replace lower-case characters with upper-case and vice-versa
+java
+Copy code
+public class ToggleCase {
+    public static String toggleCase(String str) {
+        StringBuilder toggled = new StringBuilder(str.length());
+        for (char ch : str.toCharArray()) {
+            if (Character.isLowerCase(ch)) {
+                toggled.append(Character.toUpperCase(ch));
+            } else if (Character.isUpperCase(ch)) {
+                toggled.append(Character.toLowerCase(ch));
+            } else {
+                toggled.append(ch);
+            }
+        }
+        return toggled.toString();
+    }
+
+    public static void main(String[] args) {
+        String str = "Hello, World!";
+        String toggled = toggleCase(str);
+        System.out.println("Toggled case string: " + toggled);
+    }
+}
+
+
+
+
+
+
+
+12. Java Program to replace the spaces of a string with a specific character
+java
+Copy code
+public class ReplaceSpaces {
+    public static String replaceSpaces(String str, char replacement) {
+        return str.replace(' ', replacement);
+    }
+
+    public static void main(String[] args) {
+        String str = "Hello, World!";
+        char replacement = '-';
+        String result = replaceSpaces(str, replacement);
+        System.out.println("String with replaced spaces: " + result);
+    }
+}
+
+
+
+
+
+
+
+
+Continue to next response for remaining solutions.
+
+13. Java Program to determine whether a given string is palindrome
+java
+Copy code
+public class PalindromeCheck {
+    public static boolean isPalindrome(String str) {
+        int left = 0;
+        int right = str.length() - 1;
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        String str = "radar";
+        if (isPalindrome(str)) {
+            System.out.println("'" + str + "' is a palindrome.");
+        } else {
+            System.out.println("'" + str + "' is not a palindrome.");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+14. Java Program to determine whether one string is a rotation of another
+java
+Copy code
+public class RotationCheck {
+    public static boolean areRotations(String str1, String str2) {
+        if (str1.length() != str2.length()) {
+            return false;
+        }
+        String concatenated = str1 + str1;
+        return concatenated.contains(str2);
+    }
+
+    public static void main(String[] args) {
+        String str1 = "abcd";
+        String str2 = "cdab";
+        if (areRotations(str1, str2)) {
+            System.out.println("'" + str1 + "' and '" + str2 + "' are rotations of each other.");
+        } else {
+            System.out.println("'" + str1 + "' and '" + str2 + "' are not rotations of each other.");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+15. Java Program to find maximum and minimum occurring character in a string
+java
+Copy code
+import java.util.HashMap;
+import java.util.Map;
+
+public class MaxMinCharOccurrences {
+    public static void findMaxMinOccurrences(String str) {
+        Map<Character, Integer> map = new HashMap<>();
+        for (char ch : str.toCharArray()) {
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        }
+        int maxOccurrence = Integer.MIN_VALUE;
+        int minOccurrence = Integer.MAX_VALUE;
+        char maxChar = '\0';
+        char minChar = '\0';
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            char ch = entry.getKey();
+            int occurrence = entry.getValue();
+            if (occurrence > maxOccurrence) {
+                maxOccurrence = occurrence;
+                maxChar = ch;
+            }
+            if (occurrence < minOccurrence) {
+                minOccurrence = occurrence;
+                minChar = ch;
+            }
+        }
+        System.out.println("Maximum occurring character: " + maxChar);
+        System.out.println("Minimum occurring character: " + minChar);
+    }
+
+    public static void main(String[] args) {
+        String str = "Hello, World!";
+        findMaxMinOccurrences(str);
+    }
+}
+
+
+
+
+
+
+
+
+Continue to next response for remaining solutions.
+
+16. Java Program to find Reverse of the string
+java
+Copy code
+public class ReverseString {
+    public static String reverse(String str) {
+        StringBuilder reversed = new StringBuilder(str);
+        return reversed.reverse().toString();
+    }
+
+    public static void main(String[] args) {
+        String str = "Hello, World!";
+        String reversedStr = reverse(str);
+        System.out.println("Reversed string: " + reversedStr);
+    }
+}
+17. Java program to find the duplicate characters in a string
+java
+Copy code
+import java.util.HashMap;
+import java.util.Map;
+
+public class DuplicateCharacters {
+    public static void findDuplicateCharacters(String str) {
+        Map<Character, Integer> charCountMap = new HashMap<>();
+        for (char ch : str.toCharArray()) {
+            charCountMap.put(ch, charCountMap.getOrDefault(ch, 0) + 1);
+        }
+        System.out.println("Duplicate characters in the string:");
+        for (Map.Entry<Character, Integer> entry : charCountMap.entrySet()) {
+            if (entry.getValue() > 1) {
+                System.out.println(entry.getKey() + " - " + entry.getValue() + " times");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        String str = "Hello, World!";
+        findDuplicateCharacters(str);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+18. Java program to find the duplicate words in a string
+java
+Copy code
+import java.util.HashMap;
+import java.util.Map;
+
+public class DuplicateWords {
+    public static void findDuplicateWords(String str) {
+        String[] words = str.split("\\s+");
+        Map<String, Integer> wordCountMap = new HashMap<>();
+        for (String word : words) {
+            wordCountMap.put(word, wordCountMap.getOrDefault(word, 0) + 1);
+        }
+        System.out.println("Duplicate words in the string:");
+        for (Map.Entry<String, Integer> entry : wordCountMap.entrySet()) {
+            if (entry.getValue() > 1) {
+                System.out.println(entry.getKey() + " - " + entry.getValue() + " times");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        String str = "Hello world hello";
+        findDuplicateWords(str);
+    }
+}
+
+
+
+
+
+
+
+
+
+Continue to next response for remaining solutions.
+
+19. Java Program to find the frequency of characters
+java
+Copy code
+import java.util.HashMap;
+import java.util.Map;
+
+public class CharacterFrequency {
+    public static void findCharacterFrequency(String str) {
+        Map<Character, Integer> charFrequencyMap = new HashMap<>();
+        for (char ch : str.toCharArray()) {
+            charFrequencyMap.put(ch, charFrequencyMap.getOrDefault(ch, 0) + 1);
+        }
+        System.out.println("Frequency of characters in the string:");
+        for (Map.Entry<Character, Integer> entry : charFrequencyMap.entrySet()) {
+            System.out.println(entry.getKey() + " - " + entry.getValue() + " times");
+        }
+    }
+
+    public static void main(String[] args) {
+        String str = "Hello, World!";
+        findCharacterFrequency(str);
+    }
+}
+
+
+
+
+
+
+
+
+
+20. Java Program to find the largest and smallest word in a string
+java
+Copy code
+public class LargestSmallestWord {
+    public static void findLargestSmallestWord(String str) {
+        String[] words = str.split("\\s+");
+        String smallest = words[0];
+        String largest = words[0];
+        for (String word : words) {
+            if (word.length() < smallest.length()) {
+                smallest = word;
+            }
+            if (word.length() > largest.length()) {
+                largest = word;
+            }
+        }
+        System.out.println("Smallest word: " + smallest);
+        System.out.println("Largest word: " + largest);
+    }
+
+    public static void main(String[] args) {
+        String str = "This is a test string";
+        findLargestSmallestWord(str);
+    }
+}
+
+
+
+
+
+
+
+
+
+21. Java Program to find the most repeated word in a text file
+java
+Copy code
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class MostRepeatedWord {
+    public static String findMostRepeatedWord(File file) throws FileNotFoundException {
+        Map<String, Integer> wordCountMap = new HashMap<>();
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNext()) {
+            String word = scanner.next().toLowerCase();
+            wordCountMap.put(word, wordCountMap.getOrDefault(word, 0) + 1);
+        }
+        scanner.close();
+        int maxCount = 0;
+        String mostRepeatedWord = "";
+        for (Map.Entry<String, Integer> entry : wordCountMap.entrySet()) {
+            if (entry.getValue() > maxCount) {
+                maxCount = entry.getValue();
+                mostRepeatedWord = entry.getKey();
+            }
+        }
+        return mostRepeatedWord;
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        File file = new File("example.txt");
+        String mostRepeatedWord = findMostRepeatedWord(file);
+        System.out.println("Most repeated word: " + mostRepeatedWord);
+    }
+}
+
+
+
+
+
+
+
+
+
+Continue to next response for remaining solutions.
+
+22. Java Program to find the number of words in the given text file
+java
+Copy code
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class WordCount {
+    public static int countWords(File file) throws FileNotFoundException {
+        int wordCount = 0;
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNext()) {
+            scanner.next();
+            wordCount++;
+        }
+        scanner.close();
+        return wordCount;
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        File file = new File("example.txt");
+        int wordCount = countWords(file);
+        System.out.println("Number of words in the file: " + wordCount);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+23. Java Program to separate the Individual Characters from a String
+java
+Copy code
+public class SeparateCharacters {
+    public static void separateCharacters(String str) {
+        System.out.println("Individual characters in the string:");
+        for (int i = 0; i < str.length(); i++) {
+            System.out.println(str.charAt(i));
+        }
+    }
+
+    public static void main(String[] args) {
+        String str = "Hello, World!";
+        separateCharacters(str);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+24. Java Program to swap two string variables without using third or temp variable
+java
+Copy code
+public class SwapStrings {
+    public static void main(String[] args) {
+        String str1 = "Hello";
+        String str2 = "World";
+        System.out.println("Before swapping:");
+        System.out.println("str1 = " + str1);
+        System.out.println("str2 = " + str2);
+        str1 = str1 + str2;
+        str2 = str1.substring(0, str1.length() - str2.length());
+        str1 = str1.substring(str2.length());
+        System.out.println("After swapping:");
+        System.out.println("str1 = " + str1);
+        System.out.println("str2 = " + str2);
+    }
+}
+
+
+
+
+
+
+
+
+
+Continue to next response for remaining solutions.
+
+25. Java Program to print smallest and biggest possible palindrome word in a given string
+java
+Copy code
+public class SmallestBiggestPalindrome {
+    public static boolean isPalindrome(String str) {
+        int left = 0;
+        int right = str.length() - 1;
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        String str = "abcdeedcba hello abcdefgfedcbacc";
+        String[] words = str.split("\\s+");
+        String smallestPalindrome = null;
+        String biggestPalindrome = null;
+        for (String word : words) {
+            if (isPalindrome(word)) {
+                if (smallestPalindrome == null || word.length() < smallestPalindrome.length()) {
+                    smallestPalindrome = word;
+                }
+                if (biggestPalindrome == null || word.length() > biggestPalindrome.length()) {
+                    biggestPalindrome = word;
+                }
+            }
+        }
+        System.out.println("Smallest palindrome word: " + smallestPalindrome);
+        System.out.println("Biggest palindrome word: " + biggestPalindrome);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+26. Reverse String in Java Word by Word
+java
+Copy code
+public class ReverseStringWordByWord {
+    public static String reverseWords(String str) {
+        String[] words = str.split("\\s+");
+        StringBuilder reversed = new StringBuilder();
+        for (int i = words.length - 1; i >= 0; i--) {
+            reversed.append(words[i]).append(" ");
+        }
+        return reversed.toString().trim();
+    }
+
+    public static void main(String[] args) {
+        String str = "Hello World";
+        String reversedStr = reverseWords(str);
+        System.out.println("Reversed string word by word: " + reversedStr);
+    }
+}
+
+
+
+
+
+
+
+
+
+27. Reverse String without reverse() function
+java
+Copy code
+public class ReverseStringWithoutReverseFunction {
+    public static String reverseString(String str) {
+        char[] charArray = str.toCharArray();
+        int left = 0;
+        int right = charArray.length - 1;
+        while (left < right) {
+            char temp = charArray[left];
+            charArray[left] = charArray[right];
+            charArray[right] = temp;
+            left++;
+            right--;
+        }
+        return new String(charArray);
+    }
+
+    public static void main(String[] args) {
+        String str = "Hello, World!";
+        String reversedStr = reverseString(str);
+        System.out.println("Reversed string: " + reversedStr);
+    }
+}
+
+
+
+//
+
+
+Here are the Java programs for the tasks you requested:
+
+1. Java Program to calculate the Difference between the Sum of the Odd Level and the Even Level Nodes of a Binary Tree
+java
+Copy code
+class Node {
+    int data;
+    Node left, right;
+
+    Node(int item) {
+        data = item;
+        left = right = null;
+    }
+}
+
+public class BinaryTree {
+    Node root;
+
+    int getLevelDiff(Node node) {
+        if (node == null)
+            return 0;
+
+        return node.data - getLevelDiff(node.left) - getLevelDiff(node.right);
+    }
+
+    public static void main(String args[]) {
+        BinaryTree tree = new BinaryTree();
+
+        // Let us construct a tree
+        tree.root = new Node(5);
+        tree.root.left = new Node(2);
+        tree.root.right = new Node(6);
+        tree.root.left.left = new Node(1);
+        tree.root.left.right = new Node(4);
+        tree.root.left.right.left = new Node(3);
+        tree.root.right.right = new Node(8);
+        tree.root.right.right.right = new Node(9);
+        tree.root.right.right.left = new Node(7);
+
+        int result = tree.getLevelDiff(tree.root);
+        System.out.println("Difference between sums of odd level and even level nodes of binary tree is : " + result);
+    }
+}
+
+
+
+
+
+
+
+write full code separate separate and don't stop to ask to continue 1) Java Program to copy all elements of one array into another array
+2) Java Program to find the frequency of each element in the array
+3) Java Program to left rotate the elements of an array
+4) Java Program to print the duplicate elements of an array
+5) Java Program to print the elements of an array
+6) Java Program to print the elements of an array in reverse order
+7) Java Program to print the elements of an array present on even position
+8) Java Program to print the elements of an array present on odd position
+9) Java Program to print the largest element in an array
+10) Java Program to print the smallest element in an array
+11) Java Program to print the number of elements present in an array
+12) Java Program to print the sum of all the items of the array
+13) Java Program to right rotate the elements of an array
+14) Java Program to sort the elements of an array in ascending order
+15) Java Program to sort the elements of an array in descending order
+16) Java Program to Find 3rd Largest Number in an array
+17) Java Program to Find 2nd Largest Number in an array
+18) Java Program to Find Largest Number in an array
+19) Java to Program Find 2nd Smallest Number in an array
+20) Java Program to Find Smallest Number in an array
+21) Java Program to Remove Duplicate Element in an array
+22) Java Program to Print Odd and Even Numbers from an array
+23) How to Sort an Array in Java
+
+24) Java Matrix Programs
+25) Java Program to Add Two Matrices
+ChatGPT
+Certainly! Here are the Java programs for each task:
+
+1. Java Program to copy all elements of one array into another array
+java
+Copy code
+public class CopyArray {
+    public static void main(String[] args) {
+        int[] array1 = {1, 2, 3, 4, 5};
+        int[] array2 = new int[array1.length];
+        System.arraycopy(array1, 0, array2, 0, array1.length);
+        System.out.println("Elements of array2 after copying from array1:");
+        for (int num : array2) {
+            System.out.print(num + " ");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+2. Java Program to find the frequency of each element in the array
+java
+Copy code
+import java.util.HashMap;
+import java.util.Map;
+
+public class ElementFrequency {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5, 2, 3, 4, 5, 2, 3};
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
+        for (int num : array) {
+            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+        }
+        System.out.println("Frequency of each element in the array:");
+        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+            System.out.println(entry.getKey() + " occurs " + entry.getValue() + " times");
+        }
+    }
+}
+
+
+
+
+
+
+
+3. Java Program to left rotate the elements of an array
+java
+Copy code
+public class LeftRotateArray {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5};
+        int n = 2; // Number of rotations
+        int length = array.length;
+        for (int i = 0; i < n; i++) {
+            int firstElement = array[0];
+            for (int j = 0; j < length - 1; j++) {
+                array[j] = array[j + 1];
+            }
+            array[length - 1] = firstElement;
+        }
+        System.out.println("Array after left rotation:");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+    }
+}
+
+
+
+
+
+
+4. Java Program to print the duplicate elements of an array
+java
+Copy code
+import java.util.HashSet;
+import java.util.Set;
+
+public class DuplicateElements {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5, 2, 3, 4, 5};
+        Set<Integer> uniqueElements = new HashSet<>();
+        Set<Integer> duplicateElements = new HashSet<>();
+        for (int num : array) {
+            if (!uniqueElements.add(num)) {
+                duplicateElements.add(num);
+            }
+        }
+        System.out.println("Duplicate elements in the array: " + duplicateElements);
+    }
+}
+
+
+
+
+
+
+
+5. Java Program to print the elements of an array
+java
+Copy code
+public class PrintArrayElements {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5};
+        System.out.println("Elements of the array:");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+    }
+}
+
+
+
+
+
+
+
+6. Java Program to print the elements of an array in reverse order
+java
+Copy code
+public class ReverseArray {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5};
+        System.out.println("Elements of the array in reverse order:");
+        for (int i = array.length - 1; i >= 0; i--) {
+            System.out.print(array[i] + " ");
+        }
+    }
+}
+
+
+
+
+
+
+
+7. Java Program to print the elements of an array present on even position
+java
+Copy code
+public class EvenPositionElements {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        System.out.println("Elements present at even positions:");
+        for (int i = 1; i < array.length; i += 2) {
+            System.out.print(array[i] + " ");
+        }
+    }
+}
+
+
+
+
+
+
+8. Java Program to print the elements of an array present on odd position
+java
+Copy code
+public class OddPositionElements {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        System.out.println("Elements present at odd positions:");
+        for (int i = 0; i < array.length; i += 2) {
+            System.out.print(array[i] + " ");
+        }
+    }
+}
+
+
+
+
+
+
+
+9. Java Program to print the largest element in an array
+java
+Copy code
+public class LargestElement {
+    public static void main(String[] args) {
+        int[] array = {5, 8, 3, 9, 6};
+        int max = array[0];
+        for (int num : array) {
+            if (num > max) {
+                max = num;
+            }
+        }
+        System.out.println("Largest element in the array: " + max);
+    }
+}
+
+
+
+
+
+
+
+
+10. Java Program to print the smallest element in an array
+java
+Copy code
+public class SmallestElement {
+    public static void main(String[] args) {
+        int[] array = {5, 8, 3, 9, 6};
+        int min = array[0];
+        for (int num : array) {
+            if (num < min) {
+                min = num;
+            }
+        }
+        System.out.println("Smallest element in the array: " + min);
+    }
+}
+
+
+
+
+
+
+
+11. Java Program to print the number of elements present in an array
+java
+Copy code
+public class ArrayLength {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5};
+        int length = array.length;
+        System.out.println("Number of elements in the array: " + length);
+    }
+}
+
+
+
+
+
+
+
+12. Java Program to print the sum of all the items of the array
+java
+Copy code
+public class ArraySum {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5};
+        int sum = 0;
+        for (int num : array) {
+            sum += num;
+        }
+        System.out.println("Sum of all elements in the array: " + sum);
+    }
+}
+
+
+
+
+
+
+
+
+13. Java Program to right rotate the elements of an array
+java
+Copy code
+public class RightRotateArray {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5};
+        int n = 2; // Number of rotations
+        int length = array.length;
+        for (int i = 0; i < n; i++) {
+            int lastElement = array[length - 1];
+            for (int j = length - 1; j > 0; j--) {
+                array[j] = array[j - 1];
+            }
+            array[0] = lastElement;
+        }
+        System.out.println("Array after right rotation:");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+14. Java Program to sort the elements of an array in ascending order
+java
+Copy code
+import java.util.Arrays;
+
+public class AscendingSort {
+    public static void main(String[] args) {
+        int[] array = {5, 2, 9, 1, 7};
+        Arrays.sort(array);
+        System.out.println("Array after sorting in ascending order:");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+15. Java Program to sort the elements of an array in descending order
+java
+Copy code
+import java.util.Arrays;
+import java.util.Collections;
+
+public class DescendingSort {
+    public static void main(String[] args) {
+        Integer[] array = {5, 2, 9, 1, 7};
+        Arrays.sort(array, Collections.reverseOrder());
+        System.out.println("Array after sorting in descending order:");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+16. Java Program to Find 3rd Largest Number in an array
+java
+Copy code
+import java.util.Arrays;
+
+public class ThirdLargest {
+    public static void main(String[] args) {
+        int[] array = {5, 8, 3, 9, 6};
+        Arrays.sort(array);
+        int n = array.length;
+        if (n >= 3) {
+            System.out.println("3rd largest element in the array: " + array[n - 3]);
+        } else {
+            System.out.println("Array doesn't have 3 elements");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+17. Java Program to Find 2nd Largest Number in an array
+java
+Copy code
+import java.util.Arrays;
+
+public class SecondLargest {
+    public static void main(String[] args) {
+        int[] array = {5, 8, 3, 9, 6};
+        Arrays.sort(array);
+        int n = array.length;
+        if (n >= 2) {
+            System.out.println("2nd largest element in the array: " + array[n - 2]);
+        } else {
+            System.out.println("Array doesn't have 2 elements");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+18. Java Program to Find Largest Number in an array
+java
+Copy code
+import java.util.Arrays;
+
+public class LargestNumber {
+    public static void main(String[] args) {
+        int[] array = {5, 8, 3, 9, 6};
+        Arrays.sort(array);
+        System.out.println("Largest element in the array: " + array[array.length - 1]);
+    }
+}
+
+
+
+
+
+
+
+
+19. Java Program to Find 2nd Smallest Number in an array
+java
+Copy code
+import java.util.Arrays;
+
+public class SecondSmallest {
+    public static void main(String[] args) {
+        int[] array = {5, 8, 3, 9, 6};
+        Arrays.sort(array);
+        int n = array.length;
+        if (n >= 2) {
+            System.out.println("2nd smallest element in the array: " + array[1]);
+        } else {
+            System.out.println("Array doesn't have 2 elements");
+        }
+    }
+}
+
+
+
+
+
+
+
+20. Java Program to Find Smallest Number in an array
+java
+Copy code
+import java.util.Arrays;
+
+public class SmallestNumber {
+    public static void main(String[] args) {
+        int[] array = {5, 8, 3, 9, 6};
+        Arrays.sort(array);
+        System.out.println("Smallest element in the array: " + array[0]);
+    }
+}
+
+
+
+
+
+
+
+
+
+21. Java Program to Remove Duplicate Element in an array
+java
+Copy code
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+public class RemoveDuplicates {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 3, 4, 5, 5};
+        Set<Integer> set = new HashSet<>();
+        ArrayList<Integer> uniqueElements = new ArrayList<>();
+        for (int num : array) {
+            if (set.add(num)) {
+                uniqueElements.add(num);
+            }
+        }
+        System.out.println("Array after removing duplicates: " + Arrays.toString(uniqueElements.toArray()));
+    }
+}
+
+
+
+
+
+
+
+
+
+22. Java Program to Print Odd and Even Numbers from an array
+java
+Copy code
+public class OddEven {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        System.out.println("Odd numbers:");
+        for (int num : array) {
+            if (num % 2 != 0) {
+                System.out.print(num + " ");
+            }
+        }
+        System.out.println("\nEven numbers:");
+        for (int num : array) {
+            if (num % 2 == 0) {
+                System.out.print(num + " ");
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+23. How to Sort an Array in Java
+Java arrays can be sorted using the Arrays.sort() method.
+
+java
+Copy code
+import java.util.Arrays;
+
+public class ArraySorting {
+    public static void main(String[] args) {
+        int[] array = {5, 2, 9, 1, 7};
+        Arrays.sort(array);
+        System.out.println("Array after sorting:");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+24. Java Matrix Programs
+For matrix programs, please specify the specific operations or tasks you would like to perform on matrices.
+
+25. Java Program to Add Two Matrices
+java
+Copy code
+public class MatrixAddition {
+    public static void main(String[] args) {
+        int[][] matrix1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] matrix2 = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
+        int rows = matrix1.length;
+        int columns = matrix1[0].length;
+        int[][] sum = new int[rows][columns];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                sum[i][j] = matrix1[i][j] + matrix2[i][j];
+            }
+        }
+        System.out.println("Resultant Matrix after addition:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print(sum[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+
+
+
+
+
+find the kth smallest element in a given array. Element  in the array can be in any order java code
+
+import java.util.Random;
+
+public class KthSmallestElement {
+    public static int findKthSmallest(int[] array, int k) {
+        if (k < 1 || k > array.length) {
+            throw new IllegalArgumentException("Invalid value of k");
+        }
+        return quickSelect(array, 0, array.length - 1, k - 1);
+    }
+
+    private static int quickSelect(int[] array, int low, int high, int k) {
+        if (low == high) {
+            return array[low];
+        }
+
+        int pivotIndex = partition(array, low, high);
+        if (k == pivotIndex) {
+            return array[k];
+        } else if (k < pivotIndex) {
+            return quickSelect(array, low, pivotIndex - 1, k);
+        } else {
+            return quickSelect(array, pivotIndex + 1, high, k);
+        }
+    }
+
+    private static int partition(int[] array, int low, int high) {
+        int pivot = array[high];
+        int i = low;
+        for (int j = low; j < high; j++) {
+            if (array[j] <= pivot) {
+                swap(array, i, j);
+                i++;
+            }
+        }
+        swap(array, i, high);
+        return i;
+    }
+
+    private static void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+
+    public static void main(String[] args) {
+        int[] array = {7, 10, 4, 3, 20, 15};
+        int k = 3; // kth smallest element to find
+        int kthSmallest = findKthSmallest(array, k);
+        System.out.println("The " + k + "th smallest element in the array is: " + kthSmallest);
+    }
+}
+
+
+
+
+
+
+
+
+smallest and largest element in a given array java code
+
+public class SmallestAndLargestElement {
+    public static void findSmallestAndLargest(int[] array) {
+        if (array == null || array.length == 0) {
+            System.out.println("Array is empty");
+            return;
+        }
+        
+        int smallest = array[0];
+        int largest = array[0];
+
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < smallest) {
+                smallest = array[i];
+            } else if (array[i] > largest) {
+                largest = array[i];
+            }
+        }
+
+        System.out.println("Smallest element in the array: " + smallest);
+        System.out.println("Largest element in the array: " + largest);
+    }
+
+    public static void main(String[] args) {
+        int[] array = {7, 10, 4, 3, 20, 15};
+        findSmallestAndLargest(array);
+    }
+}
+
+
+
+
+
+
+
+
+//
+
+write java method to count the number of digits in an integer that have the value 2.the integer may be assumed to be non negative
+
+public class CountDigitsWithValue {
+    public static int countDigitsWithValue(int number) {
+        // Convert the integer to a string
+        String numStr = String.valueOf(number);
+        
+        // Initialize count to store the number of occurrences of '2'
+        int count = 0;
+        
+        // Iterate through each character of the string
+        for (int i = 0; i < numStr.length(); i++) {
+            // Check if the character is '2', if yes, increment count
+            if (numStr.charAt(i) == '2') {
+                count++;
+            }
+        }
+        
+        return count;
+    }
+
+    public static void main(String[] args) {
+        int number = 22345; // Example integer
+        int count = countDigitsWithValue(number);
+        System.out.println("Number of digits with value 2: " + count);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+exception handling
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+public class ExceptionHandlingExample {
+    public static void main(String[] args) {
+        try {
+            // Code that might throw an exception
+            FileInputStream file = new FileInputStream("file.txt");
+            // Code to read from the file
+        } catch (FileNotFoundException e) {
+            // Handle the FileNotFoundException
+            System.out.println("File not found: " + e.getMessage());
+        } catch (IOException e) {
+            // Handle the IOException
+            System.out.println("Error reading from file: " + e.getMessage());
+        } finally {
+            // Code that must be executed regardless of whether an exception occurred or not
+            System.out.println("Executing finally block");
+        }
+
+        // Code that continues after exception handling
+    }
+}
